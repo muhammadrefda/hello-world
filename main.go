@@ -2,10 +2,151 @@ package main
 
 import (
 	"fmt"
-	_ "strings"
+	"strings"
 )
 
+type student struct {
+	name  string
+	grade int
+}
+
+func (s student) sayHello() {
+	fmt.Println("halo", s.name)
+}
+
+func (s student) getNameAt(i int) string {
+	return strings.Split(s.name, "")[i-2]
+}
+
+// type student struct {
+// 	person struct {
+// 		name string
+// 		age  int
+// 	}
+// 	grade   int
+// 	hobbies []string
+// }
+
+// type student struct {
+// 	person
+// 	age   int
+// 	grade int
+// }
+
 func main() {
+
+	var s1 = student{"john wick", 21}
+	s1.sayHello()
+
+	var name = s1.getNameAt(2)
+	fmt.Println("nama pnaggilan :", name)
+	// type People1 struct {
+	// 	name string
+	// 	aget int
+	// }
+
+	// type People2 = struct {
+	// 	name string
+	// 	age  int
+	// }
+
+	// people := People{"Wick", 21}
+	// fmt.Println(people)
+
+	// person := People{"Wick", 21}
+	// fmt.Println(person)
+
+	// type Person struct {
+	// 	name string
+	// 	age  int
+	// }
+	// type People = Person
+
+	// var p1 = Person{"Wick", 21}
+	// var p2 = People{"Wick", 21}
+	// fmt.Println(p1)
+	// fmt.Println(p2)
+	// type person struct {
+	// 	name string `tag1`
+	// 	age  int    `tag2`
+	// }
+
+	// type person struct {
+	// 	name    string
+	// 	age     int
+	// 	hobbies []string
+	// }
+
+	// var p1 = struct {
+	// 	name string
+	// 	age  int
+	// }{age: 22, name: "wick"}
+	// var p2 = struct {
+	// 	name string
+	// 	age  int
+	// }{"ethan", 23}
+
+	// fmt.Println(p1.name)
+	// fmt.Println(p2.name)
+
+	// var student struct {
+	// 	grade int
+	// }
+
+	// var student = struct {
+	// 	grade int
+	// }{
+	// 	12,
+	// }
+
+	// student.person = person{"wick", 21}
+	// student.grade = 2
+
+	// var allstudents = []struct {
+	// 	person
+	// 	grade int
+	// }{
+	// 	{person: person{"wick", 21}, grade: 2},
+	// 	{person: person{"ethan", 22}, grade: 3},
+	// 	{person: person{"bond", 21}, grade: 3},
+	// }
+
+	// for _, student := range allstudents {
+	// 	fmt.Println(student.name, "", student.grade)
+	// }
+
+	// var s2 = struct {
+	// person
+	// grade int
+	// }{
+	// person: person{"wick", 21},
+	// grade:  2,
+	// }
+
+	// s1.person = person{"wick", 21}
+	// s1.grade = 2
+
+	// fmt.Println("name	:", s2.person.name)
+	// fmt.Println("age	:", s2.person.age)
+	// fmt.Println("grade	:", s2.grade)
+
+	// var p1 = person{name: "wick", age: 21}
+	// var s1 = student{person: p1, grade: 2}
+
+	// fmt.Println("name	:", s1.name)
+	// fmt.Println("age	:", s1.person.age)
+	// fmt.Println("grade	:", s1.grade)
+
+	// var s1 = student{}
+	// s1.name = "wick"
+	// s1.age = 21
+	// s1.person.age = 22
+
+	// fmt.Println("name	:", s1.name)
+	// fmt.Println("age	:", s1.age)
+	// fmt.Println("age for struct person	:", s1.person.age)
+	// fmt.Println("grade	:", s1.grade)
+
 	//var firstName string = "John"
 	//var middleName = "Paul"
 	//lastName := "Doe"
@@ -467,10 +608,144 @@ func main() {
 	//fmt.Printf("luas lingkaran\t\t: %.2f \n", area)
 	//fmt.Printf("keliling lingkaran\t: %.2f \n", circumference)
 
-	var avg = calculate(2, 4, 3, 5, 4, 3, 3, 5, 5, 3)
-	var msg = fmt.Sprintf("average is %.2f", avg)
-	fmt.Println(msg)
+	//var numbers = []int{2, 4, 3, 5, 4, 3, 3, 5, 5, 3}
+
+	//var avg = calculate(2, 4, 3, 5, 4, 3, 3, 5, 5, 3)
+	//var avg = calculate(numbers...)
+	//var msg = fmt.Sprintf("average is %.2f", avg)
+	//fmt.Println(msg)
+
+	//var hobbies = []string{"reading", "swimming", "running"}
+	//yourHobbies("wick", hobbies...)
+
+	//var getMinMax = func(n []int) (int, int) {
+	//	var min, max int
+	//	for i, e := range n {
+	//		switch {
+	//		case i == 0:
+	//			max, min = e, e
+	//		case e > max:
+	//			max = e
+	//		case e < min:
+	//			min = e
+	//		}
+	//	}
+	//	return min, max
+	//}
+
+	//var numbers = []int{2, 3, 4, 3, 4, 2, 3}
+	//var min, max = getMinMax(numbers)
+	//fmt.Printf("data : %v\nmin : %v\nmax : %v\n", numbers, min, max)
+
+	//var numbers = []int{2, 3, 0, 4, 3, 2, 0, 4, 2, 0, 3}
+
+	//var newNumbers = func(min int) []int {
+	//	var r []int
+	//	for _, e := range numbers {
+	//		if e < min {
+	//			continue
+	//		}
+	//		r = append(r, e)
+	//	}
+	//	return r
+	//}(3)
+
+	//fmt.Println("original number :", numbers)
+	//fmt.Println("filtered number :", newNumbers)
+
+	//var max = 3
+	//var numbers = []int{2, 3, 0, 4, 3, 2, 0, 4, 2, 0, 3}
+	//var howMany, getNumbers = findMax(numbers, max)
+	//var theNumbers = getNumbers()
+	//
+	//fmt.Println("numbers\t:", numbers)
+	//fmt.Printf("find \t: %d\n\n\n", max)
+	//
+	//fmt.Println("found \t:", howMany)
+	//fmt.Println("value \t:", theNumbers)
+
+	//var data = []string{"wick", "jason", "ethan"}
+	//var dataContainsO = filter(data, func(each string) bool {
+	//	return strings.Contains(each, "o")
+	//})
+	//var dataLength5 = filter(data, func(each string) bool {
+	//	return len(each) == 5
+	//})
+
+	//fmt.Println("data asli \t\t:", data)
+	//fmt.Println("filter ada huruf \"o\"\t:", dataContainsO)
+	//fmt.Println("filter jumlah huruf \"5\t:", dataLength5)
+
+	//var numberA int = 4
+	//var numberB *int = &numberA
+
+	//fmt.Println("numberA (value)	:", numberA)
+	//fmt.Println("numberA (address)	:", &numberA)
+	//fmt.Println("numberB (value)	:", *numberB)
+	//fmt.Println("numberB (address)	:", numberB)
+
+	//fmt.Println("")
+
+	//numberA = 5
+
+	//fmt.Println("numberA (value)	:", numberA)
+	//fmt.Println("numberA (address)	:", &numberA)
+	//fmt.Println("numberB (value)	:", *numberB)
+	//fmt.Println("numberB (address)	:", numberB)
+
+	//var number = 4
+	//fmt.Println("before :", number)
+	//change(&number, 10)
+	//fmt.Println("after :", number)
+
+	// var s1 = student{name: "wick", grade: 2}
+	// var s2 *student = &s1
+	// fmt.Println("student 1, name :", s1.name)
+	// fmt.Println("student 4, name :", s2.name)
+
+	// s2.name = "ethan"
+	// fmt.Println("student 1, name :", s1.name)
+	// fmt.Println("student 4, name :", s2.name)
+
+	// var s2 = student{"ethan", 2}
+
+	// var s3 = student{name: "jason"}
+
+	// var s4 = student{name: "Wayne", grade: 2}
+	// var s5 = student{grade: 2, name: "Bruce"}
+
+	// ssfmt.Println("name :", s1.name)
+
+	// fmt.Println("name :", s2.name)
+	// fmt.Println("name :", s3.name)
 }
+
+//func change(original *int, value int) {
+//	*original = value
+//}
+
+//func filter(data []string, callback func(string) bool) []string {
+//	var result []string
+//	for _, each := range data {
+//		if filtered := callback(each); filtered {
+//			result = append(result, each)
+//		}
+//	}
+//	return result
+//}
+
+//func findMax(numbers []int, max int) (int, func() []int) {
+//	var res []int
+//	for _, e := range numbers {
+//		if e <= max {
+//			res = append(res, e)
+//		}
+//	}
+//
+//	return len(res), func() []int {
+//		return res
+//	}
+//}
 
 //func printMessage(message string, arr []string) {
 //	var nameString = strings.Join(arr, " ")
@@ -507,12 +782,19 @@ func main() {
 //	return
 //}
 
-func calculate(numbers ...int) float64 {
-	var total int = 0
-	for _, number := range numbers {
-		total += number
-	}
+//func calculate(numbers ...int) float64 {
+//	var total int = 0
+//	for _, number := range numbers {
+//		total += number
+//	}
+//
+//	var avg = float64(total) / float64(len(numbers))
+//	return avg
+//}
 
-	var avg = float64(total) / float64(len(numbers))
-	return avg
-}
+//func yourHobbies(name string, hobbies ...string) {
+//	var hobbiesAsString = strings.Join(hobbies, ",")
+//
+//	fmt.Printf("Hello, my name is: %s\n", name)
+//	fmt.Printf("My hobbies are: %s\n", hobbiesAsString)
+//}
